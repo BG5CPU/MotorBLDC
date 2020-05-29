@@ -1,0 +1,106 @@
+inition
+
+interrupt ADC
+  HallValue = 1
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load last step (unknow)
+    preload step1
+  back COM
+  HallValue = 2
+back ADC
+
+interrupt ADC
+  getAdcValue = stpe (unknow)
+  HallValue = 2
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load step1
+    preload step2
+  back COM
+  HallValue = 3
+back ADC
+
+interrupt ADC
+  getAdcValue = step1
+  HallValue = 3
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load step2
+    preload step3
+  back COM
+  HallValue = 4
+back ADC
+
+interrupt ADC
+  getAdcValue = step2
+  HallValue = 4
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load step3
+    preload step4
+  back COM
+  HallValue = 5
+back ADC
+
+interrupt ADC
+  getAdcValue = step3
+  HallValue = 5
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load step4
+    preload step5
+  back COM
+  HallValue = 6
+back ADC
+
+interrupt ADC
+  getAdcValue = step4
+  HallValue = 6
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load step5
+    preload step6
+  back COM
+  HallValue = 1
+back ADC
+
+interrupt ADC
+  getAdcValue = step5
+  HallValue = 1
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load step6
+    preload step1
+  back COM
+  HallValue = 2
+back ADC
+
+interrupt ADC
+  getAdcValue = step6
+  HallValue = 2
+  TIM1->EGR |= 1<<5; 
+  interrupt COM
+    load step1
+    preload step2
+  back COM
+  HallValue = 3
+back ADC
+
+//3--1--0
+//4--2--1
+//5--3--2
+//6--4--3
+//1--5--4
+//2--6--5
+
+///////test////////
+HallValue = 2, write bus_current[4]  0x17AA
+HallValue = 3, write bus_current[5]  0x17A4
+HallValue = 4, write bus_current[0]  0x1768
+HallValue = 5, write bus_current[1]  0x17BF
+HallValue = 6, write bus_current[2]  0x17D0
+HallValue = 1, write bus_current[3]  0x178B
+
+
+
